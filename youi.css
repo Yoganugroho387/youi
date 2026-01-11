@@ -1,0 +1,264 @@
+/* * YOUI FRAMEWORK v2.0
+ * Author: Yoga Nugroho (YoBase)
+ * License: MIT
+ */
+
+/* =========================================
+   1. ROOT VARIABLES (THEME CONFIG)
+   ========================================= */
+:root {
+  /* Brand Colors (Ubah ini untuk rebranding YoBase) */
+  --primary: #4f46e5;       /* Indigo-600 */
+  --primary-hover: #4338ca; /* Indigo-700 */
+  --secondary: #64748b;     /* Slate-500 */
+  --success: #10b981;       /* Emerald-500 */
+  --danger: #ef4444;        /* Red-500 */
+  --warning: #f59e0b;       /* Amber-500 */
+  --info: #0ea5e9;          /* Sky-500 */
+
+  /* Surface & Text Colors (Light Mode Default) */
+  --bg-body: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-input: #ffffff;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+
+  /* Spacing & Layout */
+  --container-width: 1200px;
+  --gutter-x: 1.5rem;
+  --gutter-y: 0;
+  
+  /* Components Shape */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-full: 9999px;
+  
+  /* Effects */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* DARK MODE SUPPORT (Otomatis aktif jika OS user Dark Mode) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-body: #0f172a;
+    --bg-card: #1e293b;
+    --bg-input: #1e293b;
+    --text-main: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border-color: #334155;
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.5);
+  }
+}
+
+/* =========================================
+   2. RESET & BASE STYLE
+   ========================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+a { color: var(--primary); text-decoration: none; transition: 0.2s; }
+a:hover { color: var(--primary-hover); text-decoration: underline; }
+
+/* =========================================
+   3. GRID SYSTEM (RESPONSIVE)
+   ========================================= */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: calc(var(--gutter-x) * 0.5);
+  padding-left: calc(var(--gutter-x) * 0.5);
+}
+
+.container-fluid { width: 100%; padding: 0 1rem; }
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(var(--gutter-y) * -1);
+  margin-right: calc(var(--gutter-x) * -0.5);
+  margin-left: calc(var(--gutter-x) * -0.5);
+}
+
+.row > * {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-right: calc(var(--gutter-x) * 0.5);
+  padding-left: calc(var(--gutter-x) * 0.5);
+  margin-top: var(--gutter-y);
+}
+
+/* Mobile First (Default col-12) */
+.col-12 { flex: 0 0 auto; width: 100%; }
+.col-6 { flex: 0 0 auto; width: 50%; }
+
+/* Tablet (md) >= 768px */
+@media (min-width: 768px) {
+  .col-md-1 { flex: 0 0 auto; width: 8.333333%; }
+  .col-md-2 { flex: 0 0 auto; width: 16.666667%; }
+  .col-md-3 { flex: 0 0 auto; width: 25%; }
+  .col-md-4 { flex: 0 0 auto; width: 33.333333%; }
+  .col-md-6 { flex: 0 0 auto; width: 50%; }
+  .col-md-8 { flex: 0 0 auto; width: 66.666667%; }
+  .col-md-12 { flex: 0 0 auto; width: 100%; }
+}
+
+/* Desktop (lg) >= 1024px */
+@media (min-width: 1024px) {
+  .col-lg-3 { flex: 0 0 auto; width: 25%; }
+  .col-lg-4 { flex: 0 0 auto; width: 33.333333%; }
+  .col-lg-6 { flex: 0 0 auto; width: 50%; }
+}
+
+/* =========================================
+   4. COMPONENTS
+   ========================================= */
+
+/* --- Buttons --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1.25rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  line-height: 1.5;
+}
+
+.btn:active { transform: scale(0.98); }
+
+.btn-primary { background: var(--primary); color: white; }
+.btn-primary:hover { background: var(--primary-hover); color: white; text-decoration: none; }
+
+.btn-secondary { background: white; border-color: var(--border-color); color: var(--text-main); }
+.btn-secondary:hover { background: var(--bg-body); text-decoration: none; }
+
+.btn-danger { background: var(--danger); color: white; }
+.btn-block { display: flex; width: 100%; }
+
+/* --- Cards --- */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.card-header {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  background-color: rgba(0,0,0,0.02);
+  font-weight: 600;
+}
+
+.card-body { padding: 1.5rem; flex: 1 1 auto; }
+.card-footer { padding: 1rem 1.5rem; border-top: 1px solid var(--border-color); background: rgba(0,0,0,0.02); }
+
+/* --- Forms --- */
+.form-label { display: block; margin-bottom: 0.5rem; font-size: 0.875rem; font-weight: 500; }
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.625rem 0.875rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-main);
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+  border-color: var(--primary);
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15); /* Ring effect */
+}
+
+/* --- Navbar --- */
+.navbar {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  background-color: var(--bg-card);
+  border-bottom: 1px solid var(--border-color);
+}
+.navbar-brand { font-size: 1.5rem; font-weight: 800; color: var(--primary); }
+
+/* --- Badge --- */
+.badge {
+  display: inline-block;
+  padding: 0.25em 0.6em;
+  font-size: 0.75em;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: var(--radius-full);
+}
+.bg-primary { background-color: var(--primary); color: white; }
+.bg-success { background-color: var(--success); color: white; }
+.bg-danger { background-color: var(--danger); color: white; }
+
+/* =========================================
+   5. UTILITIES (Helpers)
+   ========================================= */
+/* Flexbox */
+.d-flex { display: flex !important; }
+.justify-content-center { justify-content: center !important; }
+.justify-content-between { justify-content: space-between !important; }
+.align-items-center { align-items: center !important; }
+
+/* Spacing (Margin/Padding - Simplifikasi) */
+.m-0 { margin: 0; } .p-0 { padding: 0; }
+.mt-1 { margin-top: 0.25rem; } .mb-1 { margin-bottom: 0.25rem; }
+.mt-2 { margin-top: 0.5rem; }  .mb-2 { margin-bottom: 0.5rem; }
+.mt-3 { margin-top: 1rem; }    .mb-3 { margin-bottom: 1rem; }
+.mt-4 { margin-top: 1.5rem; }  .mb-4 { margin-bottom: 1.5rem; }
+.mt-5 { margin-top: 3rem; }    .mb-5 { margin-bottom: 3rem; }
+.p-3 { padding: 1rem; }        .p-4 { padding: 1.5rem; }
+
+/* Text & Alignment */
+.text-center { text-align: center !important; }
+.text-end { text-align: right !important; }
+.fw-bold { font-weight: 700 !important; }
+.text-muted { color: var(--text-muted) !important; }
+    
