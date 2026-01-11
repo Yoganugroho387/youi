@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youi Framework - Dokumentasi Resmi</title>
+    <meta name="description" content="Framework CSS modern dan ringan buatan YoBase.">
+    
+    <link rel="stylesheet" href="youi.css">
+    
+    <style>
+        /* Custom Style khusus halaman dokumentasi ini */
+        .hero-section {
+            padding: 4rem 0;
+            text-align: center;
+            background: linear-gradient(to bottom, var(--bg-body), var(--bg-card));
+            border-bottom: 1px solid var(--border-color);
+        }
+        .code-box {
+            background: #1e293b;
+            color: #a5b4fc;
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            font-family: monospace;
+            overflow-x: auto;
+            border: 1px solid #334155;
+            text-align: left;
+            margin: 1rem auto;
+            max-width: 800px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .copy-btn {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: none;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+        .copy-btn:hover { background: rgba(255,255,255,0.2); }
+        .demo-box {
+            padding: 1.5rem;
+            border: 1px dashed var(--border-color);
+            border-radius: var(--radius-md);
+            margin-bottom: 1rem;
+            background: rgba(0,0,0,0.01);
+        }
+        .section-title {
+            margin-top: 3rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary);
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar sticky-top">
+        <div class="container d-flex">
+            <a href="#" class="navbar-brand">Youi <span style="font-size:0.8rem; font-weight:400; color:var(--text-muted)">v2.0</span></a>
+            <div class="d-flex">
+                <a href="#docs" class="btn btn-secondary" style="margin-right: 0.5rem;">Docs</a>
+                <a href="https://github.com/YogaNugroho/youi" target="_blank" class="btn btn-primary">GitHub</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="container">
+            <span class="badge bg-primary mb-2">New Release v2.0</span>
+            <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">Desain Web Lebih Cepat dengan <span style="color: var(--primary);">Youi</span></h1>
+            <p class="text-muted" style="font-size: 1.1rem; max-width: 600px; margin: 0 auto 2rem auto;">
+                Framework CSS minimalis, responsif, dan ringan. Dikembangkan oleh <b>YoBase</b> untuk kebutuhan SaaS dan IoT Dashboard.
+            </p>
+
+            <div class="container">
+                <p class="fw-bold mb-2">Pasang via CDN:</p>
+                <div class="code-box">
+                    <code id="cdnCode">&lt;link rel="stylesheet" href="https://youi-beige.vercel.app/youi.css"&gt;</code>
+                    <button class="copy-btn" onclick="copyToClipboard()">Copy</button>
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <a href="#components" class="btn btn-primary p-3">Lihat Komponen</a>
+                <a href="#grid" class="btn btn-secondary p-3">Sistem Grid</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="container" id="docs" style="padding-bottom: 4rem;">
+
+        <h2 class="section-title">Typography & Colors</h2>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="card mb-3">
+                    <div class="card-header">Headings</div>
+                    <div class="card-body">
+                        <h1>Heading 1</h1>
+                        <h2>Heading 2</h2>
+                        <h3>Heading 3</h3>
+                        <p class="text-muted">Paragraph text dengan class .text-muted</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="card mb-3">
+                    <div class="card-header">Colors Theme</div>
+                    <div class="card-body">
+                        <div class="d-flex" style="gap: 10px; flex-wrap: wrap;">
+                            <div class="p-3 bg-primary text-center" style="color:white; border-radius:8px;">Primary</div>
+                            <div class="p-3 bg-success text-center" style="color:white; border-radius:8px;">Success</div>
+                            <div class="p-3 bg-danger text-center" style="color:white; border-radius:8px;">Danger</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title" id="components">Buttons</h2>
+        <div class="card mb-4">
+            <div class="card-body">
+                <p>Gunakan class <code>.btn</code> diikuti varian warnanya.</p>
+                <div class="demo-box">
+                    <button class="btn btn-primary">Primary</button>
+                    <button class="btn btn-secondary">Secondary</button>
+                    <button class="btn btn-danger">Danger</button>
+                </div>
+                <div class="code-box" style="margin:0;">
+                    <code>&lt;button class="btn btn-primary"&gt;Klik Saya&lt;/button&gt;</code>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Cards</h2>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="card mb-3">
+                    <div class="card-header">Featured Card</div>
+                    <div class="card-body">
+                        <h4 class="fw-bold">Judul Artikel</h4>
+                        <p class="text-muted">Kartu adalah komponen fleksibel untuk menampilkan konten.</p>
+                        <button class="btn btn-primary">Baca Selengkapnya</button>
+                    </div>
+                    <div class="card-footer text-muted text-end">
+                        Posted 2 mins ago
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <p>Struktur HTML untuk Card:</p>
+                <div class="code-box" style="margin:0; height: 100%;">
+<pre style="margin:0">&lt;div class="card"&gt;
+  &lt;div class="card-header"&gt;Header&lt;/div&gt;
+  &lt;div class="card-body"&gt;
+    Isi konten...
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Forms</h2>
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" class="form-control" placeholder="name@example.com">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Password</label>
+                            <input type="password" class="form-control" placeholder="********">
+                        </div>
+                        <button class="btn btn-primary btn-block">Sign In</button>
+                    </div>
+                    <div class="col-12 col-md-6 d-flex align-items-center justify-content-center">
+                        <div class="text-center">
+                            <h4 class="fw-bold">Modern Inputs</h4>
+                            <p class="text-muted">Input dengan efek focus ring yang elegan.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title" id="grid">Grid System</h2>
+        <p>Sistem 12 kolom responsif. Coba resize browser Anda untuk melihat efeknya.</p>
+        
+        <div class="demo-box text-center" style="color: white;">
+            <div class="row">
+                <div class="col-12 col-md-4 mb-2">
+                    <div class="p-3 bg-primary" style="border-radius: var(--radius-md)">.col-md-4</div>
+                </div>
+                <div class="col-12 col-md-4 mb-2">
+                    <div class="p-3 bg-primary" style="border-radius: var(--radius-md)">.col-md-4</div>
+                </div>
+                <div class="col-12 col-md-4 mb-2">
+                    <div class="p-3 bg-primary" style="border-radius: var(--radius-md)">.col-md-4</div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-6">
+                    <div class="p-3 bg-danger" style="border-radius: var(--radius-md)">.col-6</div>
+                </div>
+                <div class="col-6">
+                    <div class="p-3 bg-danger" style="border-radius: var(--radius-md)">.col-6</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer style="background: var(--bg-card); border-top: 1px solid var(--border-color); padding: 2rem 0; margin-top: 3rem;">
+        <div class="container text-center">
+            <h4 class="fw-bold mb-3" style="color: var(--primary)">Youi Framework</h4>
+            <p class="text-muted">Dibuat dengan ❤️ oleh <a href="#" target="_blank">Yoga Nugroho (YoBase)</a></p>
+            <p class="text-muted" style="font-size: 0.9rem;">&copy; 2026. Lisensi MIT.</p>
+        </div>
+    </footer>
+
+    <script>
+        function copyToClipboard() {
+            const codeText = document.getElementById("cdnCode").innerText;
+            navigator.clipboard.writeText(codeText);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerText = "Copied!";
+            setTimeout(() => { btn.innerText = "Copy"; }, 2000);
+        }
+    </script>
+</body>
+  </html>
+  
